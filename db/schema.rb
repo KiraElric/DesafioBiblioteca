@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_184735) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
-    t.string "state"
+    t.integer "state", default: 0
     t.string "holder"
     t.date "lend_date"
     t.date "returning_date"

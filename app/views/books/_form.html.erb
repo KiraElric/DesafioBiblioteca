@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.select :state, Book.states.keys %>
   </div>
 
   <div class="field">
