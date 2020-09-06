@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  state: MyString
+  holder: MyString
+  lend_date: 2020-09-06
+  returning_date: 2020-09-06
+
+two:
+  title: MyString
+  author: MyString
+  state: MyString
+  holder: MyString
+  lend_date: 2020-09-06
+  returning_date: 2020-09-06
