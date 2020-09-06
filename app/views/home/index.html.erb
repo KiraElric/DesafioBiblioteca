@@ -2,7 +2,7 @@
   <div class="col-md-10 offset-md-2">
     <div class="jumbotron">
       <h1 class="display-4 text-center">¡Bienvenidos a mi biblioteca!</h1>
-      <hr class="my-4">
+      <hr class="my-3">
       <p class="text-center font-weight-bold">Listado de mis libros</p>
     </div>
   </div>
@@ -10,6 +10,7 @@
 
 <div class="row">
   <div class="col-md-10 offset-md-2">
+    <div class="text-right my-2"><button class="btn btn-outline-success"><%= link_to 'New Book', new_book_path %></button></div>
     <% @books.each do |book| %>
     <div class="row">
       <div class="col-md-12 font-weight-bold display-2 text-uppercase"><h2>"<%= book.title %>"</h2></div>
@@ -24,6 +25,6 @@
         </div>
     </div>    
     <% end%>
-    <%= paginate @books %>
   </div>
+  <%= paginate @books %>
 </div>
