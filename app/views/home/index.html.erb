@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-10 offset-md-2">
+    <div class="jumbotron">
+      <h1 class="display-4 text-center">¡Bienvenidos a mi biblioteca!</h1>
+      <hr class="my-4">
+      <p class="text-center font-weight-bold">Listado de mis libros</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10 offset-md-2">
+    <% @books.each do |book| %>
+    <div class="row">
+      <div class="col-md-12 font-weight-bold display-2 text-uppercase"><h2>"<%= book.title %>"</h2></div>
+      <div class="col-md-12 font-weight-bold font-italic display-5 text-uppercase"><h5>Autor: <%= book.author %></h5></div>
+        <div class="col-md-12 small text-right">
+          <span><strong>Estado: </strong><span class="font-weight-light"><%= book.state%></span></span>
+        </div>
+        <div class="col-md-12 small">
+          <span><strong>Prestado a: </strong><span class="font-weight-light text-capitalize"><%= book.holder%></span></span>
+          <span class="mx-3"><strong>Fecha inicio: </strong><span class="font-weight-light"><%= book.lend_date%></span></span>
+          <span><strong>Fecha devolución: </strong><span class="font-weight-light"><%= book.returning_date%></span></span>
+        </div>
+    </div>    
+    <% end%>
+    <%= paginate @books %>
+  </div>
+</div>
