@@ -1,48 +1,22 @@
 require 'test_helper'
 
-class BooksControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @book = books(:one)
-  end
-
-  test "should get index" do
-    get books_url
+class BooksControllerTest < ActionController::TestCase
+  test 'get index' do
+    get :index
     assert_response :success
+    assert_template :index
   end
 
-  test "should get new" do
-    get new_book_url
+  test 'new book' do
+    get :new
     assert_response :success
+    assert_template :new
   end
 
-  test "should create book" do
-    assert_difference('Book.count') do
-      post books_url, params: { book: { author: @book.author, holder: @book.holder, lend_date: @book.lend_date, returning_date: @book.returning_date, state: @book.state, title: @book.title } }
-    end
-
-    assert_redirected_to book_url(Book.last)
+  test 'create book' do
+    params = {title: "harry potter", author: "JK Rowling", state: "en_biblioteca", holder: "NN", lend_date: "2020-08-15", returning_date: "2020-08-15"}
+    post :create, params: {book: params}
+    assert_response :found
   end
 
-  test "should show book" do
-    get book_url(@book)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_book_url(@book)
-    assert_response :success
-  end
-
-  test "should update book" do
-    patch book_url(@book), params: { book: { author: @book.author, holder: @book.holder, lend_date: @book.lend_date, returning_date: @book.returning_date, state: @book.state, title: @book.title } }
-    assert_redirected_to book_url(@book)
-  end
-
-  test "should destroy book" do
-    assert_difference('Book.count', -1) do
-      delete book_url(@book)
-    end
-
-    assert_redirected_to books_url
-  end
 end
